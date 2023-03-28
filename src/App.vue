@@ -1,11 +1,11 @@
 <template>
   <div class="app">
-    <ItemTimer />
+    <TimerItems />
   </div>
 </template>
 
 <script setup>
-import ItemTimer from "./components/ItemTimer.vue";
+import TimerItems from "./components/TimerItems.vue";
 </script>
 
 <style>
