@@ -1,15 +1,15 @@
 <template>
   <div class="timer-display">
-    <div v-if="rectangleItem.minutes > 59">
-      <span>{{ currentTime.hourse }}</span>
+    <div v-if="hours > 0">
+      <span>{{ hours }}</span>
       <span>:</span>
     </div>
-    <div v-else-if="rectangleItem.seconds > 59">
-      <span>{{ rectangleItem.minutes }}</span>
+    <div v-if="minutes > 0 || hours > 0">
+      <span>{{ minutes }}</span>
       <span>:</span>
     </div>
     <div>
-      <span>{{ rectangleItem.seconds }}</span>
+      <span>{{ seconds }}</span>
     </div>
   </div>
   <div class="btns-container">
@@ -34,7 +34,7 @@
         <rect width="3" height="20" />
       </svg>
     </div>
-    <div class="btn">
+    <div class="btn" @click="clearTimer">
       <svg
         width="20"
         height="20"
@@ -48,42 +48,41 @@
 </template>
 
 <script setup>
-import { defineProps, ref } from "vue";
-defineProps({
-  rectangleItem: {
-    type: Object,
-    required: true,
-  },
-});
+import { ref } from "vue";
 
-const currentTime = ref(null);
+const seconds = ref(59);
+const minutes = ref(59);
+const hours = ref(12);
+const timer = ref(null);
 
 const hideCompleted = ref(false);
 
-let now = ref(new Date());
-
 function startTimer() {
   hideCompleted.value = true;
-  let t = Date.parse(now.value) - Date.parse(new Date());
-  let seconds = Math.floor((t / 1000) % 60);
-  let minutes = Math.floor((t / 1000 / 60) % 60);
-  let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-  let days = Math.floor(t / (1000 * 60 * 60 * 24));
-  console.log(t);
-  if (t < 0) {
-    currentTime.value = {
-      total: t,
-      days: days,
-      hours: hours,
-      minutes: minutes,
-      seconds: seconds,
-    };
-  }
-  console.log(currentTime);
+  timer.value = setInterval(() => {
+    if (seconds.value > 59) {
+      seconds.value = 0;
+      minutes.value++;
+      if (minutes.value > 59) {
+        minutes.value = 0;
+        hours.value++;
+      }
+    }
+    seconds.value++;
+  }, 1000);
 }
 
 function stopTimer() {
   hideCompleted.value = false;
+  clearInterval(timer.value);
+}
+
+function clearTimer() {
+  hideCompleted.value = false;
+  clearInterval(timer.value);
+  seconds.value = 0;
+  minutes.value = 0;
+  hours.value = 0;
 }
 </script>
 

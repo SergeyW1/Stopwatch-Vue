@@ -6,7 +6,7 @@
         v-for="rectangleItem in rectangleItems"
         :key="rectangleItem"
       >
-        <TimerItem :rectangleItem="rectangleItem" />
+        <TimerItem />
       </div>
       <div class="rectangle">
         <div @click="addItem" class="addBtn"></div>
@@ -19,15 +19,17 @@
 import TimerItem from "./TimerItem.vue";
 import { ref } from "vue";
 
+const id = ref(0);
+
 const rectangleItems = ref([
-  { hourse: 0, minutes: 0, seconds: 0 },
-  { hourse: 0, minutes: 0, seconds: 0 },
-  { hourse: 0, minutes: 0, seconds: 0 },
-  { hourse: 0, minutes: 0, seconds: 0 },
+  { id: id.value++ },
+  { id: id.value++ },
+  { id: id.value++ },
+  { id: id.value++ },
 ]);
 
 const addItem = () => {
-  rectangleItems.value.push({ hourse: 0, minutes: 0, seconds: 0, done: false });
+  rectangleItems.value.push({ id: id.value++ });
 };
 </script>
 
