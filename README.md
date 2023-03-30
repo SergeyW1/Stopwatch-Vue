@@ -5,7 +5,7 @@
 ## Ability to pause and reset the timer
 
 # Link: https://sergeyw1.github.io/stopwatch-vue/
-```
+
 
 
 
