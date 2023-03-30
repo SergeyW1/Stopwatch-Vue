@@ -1,6 +1,6 @@
 # stopwatch-vue
 
-### Timer functionality
+## Timer functionality
 ```
 - Ability to add a new timer
 
