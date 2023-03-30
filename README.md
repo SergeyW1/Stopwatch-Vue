@@ -2,9 +2,11 @@
 
 ### Timer functionality
 ```
-# Ability to add a new timer
-# Each timer is independent of each other
-# Ability to pause and reset the timer
+- Ability to add a new timer
+
+- Each timer is independent of each other
+
+- Ability to pause and reset the timer
 ```
 
 # Link: https://sergeyw1.github.io/stopwatch-vue/
