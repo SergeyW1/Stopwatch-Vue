@@ -1,4 +1,4 @@
-# stopwatch-vue
+# Stopwatch-Vue
 
 ## Timer functionality
 ```
