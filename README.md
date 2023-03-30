@@ -3,9 +3,7 @@
 ### Timer functionality
 ```
 Ability to add a new timer
-```
 Each timer is independent of each other
-```
 Ability to pause and reset the timer
 ```
 
