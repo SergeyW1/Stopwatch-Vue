@@ -1,12 +1,12 @@
 # Stopwatch-Vue
 
-## Timer functionality
+## Функциональность таймера
 ```
-- Ability to add a new timer
+- Возможность добавления нового таймера
 
-- Each timer is independent of each other
+- Каждый раз они независимы друг от друга
 
-- Ability to pause and reset the timer
+- Возможность приостановки и сброса таймера
 ```
 
 # Link: https://sergeyw1.github.io/stopwatch-vue/
